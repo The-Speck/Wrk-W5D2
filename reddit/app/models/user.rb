@@ -4,7 +4,10 @@ class User < ApplicationRecord
   
   attr_reader :password
   
-  has_many :subs, foreign_key: :moderator_id
+  has_many :post_subs, inverse: :post
+  has_many :subs, 
+    through: :post_subs,
+    source: sub
   
   after_initialize :ensure_session_token
   
@@ -27,8 +30,8 @@ class User < ApplicationRecord
     BCrypt::Password.new(password_digest).is_password?(password)
   end
   
-  def password=(pasword)
-    @password = pasword
+  def password=(password)
+    @password = password
     self.password_digest = BCrypt::Password.create(password)
   end
   

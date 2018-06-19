@@ -1,0 +1,8 @@
+<h1>Make a new post</h1>
+
+<%= render "form", 
+    action: sub_posts_url,
+    method: "post",
+    post: @post,
+    button: "Create Post"
+  %>

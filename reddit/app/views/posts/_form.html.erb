@@ -2,16 +2,22 @@
   <input type="hidden" name="_method" value="<%= method %>">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   
+  <br>
   <label>
     Title
-    <input type="text" name="sub[title]" value="<%= subber.title %>">
+    <input type="text" name="post[title]" value="<%= post.title %>">
   </label>
-  
+  <br>
   <label>
-    Description
-    <input type="text" name="sub[description]" value="<%= subber.description %>">
+    URL
+    <input type="text" name="post[url]" value="<%= post.url %>">
   </label>
-  
+  <br>
+  <label>
+    Content
+    <textarea name="post[content]" rows="8" cols="80"><%= post.content %></textarea>
+  </label>
+  <br>
   
   <input type="submit" value="<%= button %>">
 </form>
