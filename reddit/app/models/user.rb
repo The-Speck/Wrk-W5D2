@@ -4,6 +4,8 @@ class User < ApplicationRecord
   
   attr_reader :password
   
+  has_many :subs, foreign_key: :moderator_id
+  
   after_initialize :ensure_session_token
   
   def User.find_by_credentials(username, password)

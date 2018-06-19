@@ -1,0 +1,10 @@
+<h1><%= @sub.title %></h1>
+by <%= User.find(@sub.moderator_id).username %>
+
+<a href="<%= edit_sub_url %>">Edit Sub</a>
+
+<ul>
+  <% @sub.posts.each do |post| %>
+    <li><a href="<%= post_url(post) %>"><%= post.title %></a></li>
+  <% end %>
+</ul>
